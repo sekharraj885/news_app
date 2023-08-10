@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsComponent } from './news/news.component';
 import { AppService } from './app.service';
 import {MatButtonModule} from '@angular/material/button';
-import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -27,7 +26,6 @@ import {MatMenuModule} from '@angular/material/menu';
   declarations: [
     AppComponent,
     NewsComponent,
-    HeaderComponent
   ],
   imports: [
     BrowserModule,
