@@ -1,0 +1,50 @@
+<mat-toolbar class="fixed-toolbar">
+       <span style="color: whitesmoke;">News App</span>
+      <mat-form-field >
+        <input matInput placeholder="Search" [(ngModel)]="searchKeyword" (keydown.enter)="getNewsbySearchKeyword()">
+        <button mat-button matSuffix  (click)="getNewsbySearchKeyword()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+      
+      <mat-form-field >
+        <mat-label >Enter a date range</mat-label>
+        <mat-date-range-input [formGroup]="range"  [rangePicker]="picker">
+          <input formControlName="start" matStartDate placeholder="Start date">
+          <input formControlName="end" matEndDate placeholder="End date" (dateChange)="onDateChange()">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+</mat-toolbar>
+
+<div class="news-container">
+    <mat-card class="news-card" *ngFor="let news of newsList">
+        <div  class="image-container">
+            <img mat-card-image [src]=news.urlToImage alt="Image missing">
+        </div>
+        <mat-card-content>
+        <h1> {{news.title}} </h1>
+        <p>{{news.description}}</p>
+        <p>{{news.content}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<mat-paginator class="paginator"
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+</mat-paginator>
+
+
+
+
+
+
+
+  
